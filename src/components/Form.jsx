@@ -13,7 +13,7 @@ import PersonalInfo from './PersonalInfo';
 import AccountDetails from './AccountDetails';
 import ReviewInfo from './ReviewInfo';
 
-const steps = [' Account Details', 'Personal Info', 'Review and Submit'];
+const steps = [' Personal Info', 'Documents', 'e-Sign and Submit'];
 
 const Form = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -37,25 +37,47 @@ const Form = () => {
       if (activeStep === steps.length - 1) {
         console.log('last step');
         console.log(values);
-        const response = await fetch('https://ap-south-1.aws.data.mongodb-api.com/app/data-jttnm/endpoint/data/v1/action/insertOne', {
-            method: 'POST',
-            headers: {
-              'apiKey': 'ptAn9C6B0k3R5orbYDMTZ3wBGINWTAReOko6FShvJoM9ed9e7z9JZsyaQ1dNNkpb',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              collection: 'EmpOnboardingInfo',
-              database: 'EmpOnboarding',
-              dataSource: 'EmployeeInfoTest',
-              document: values
-            })
-          });
-  
-          if (response.ok) {
-            console.log('Data successfully submitted to MongoDB:', response);
-          } else {
-            console.error('Failed to submit data to MongoDB:', response);
-          }
+        try {
+        // Get authentication token
+      const tokenResponse = await fetch('https://realm.mongodb.com/api/client/v2.0/app/data-jttnm/auth/providers/local-userpass/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: 'ServiceAccount1',
+          password: 'nnEVXPvFsrHeKFob',
+        }),
+      });
+      if (!tokenResponse.ok) {
+        console.error('Failed to get authentication token:', tokenResponse);
+        return;
+      }
+      const { access_token } = await tokenResponse.json();
+      
+      // Submit data to MongoDB with the obtained token
+      const response = await fetch('https://ap-south-1.aws.data.mongodb-api.com/app/data-jttnm/endpoint/data/v1/action/insertOne', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${access_token}`, // Pass the obtained token in the Authorization header
+        },
+        body: JSON.stringify({
+          collection: 'EmpOnboardingInfo',
+          database: 'EmpOnboarding',
+          dataSource: 'EmployeeInfoTest',
+          document: values,
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Data successfully submitted to MongoDB:', response);
+      } else {
+        console.error('Failed to submit data to MongoDB:', response);
+      }
+    } catch (error) {
+      console.error('Error during form submission:', error);
+    }
       } else {
         setActiveStep((prevStep) => prevStep + 1);
       }
