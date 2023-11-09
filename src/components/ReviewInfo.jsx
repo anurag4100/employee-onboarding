@@ -65,7 +65,18 @@ const ReviewInfo = ({ formik }) => {
     <>
       <Typography variant="overline">Personal Information</Typography>
       <List>
-        {/* ... personal information fields ... */}
+      <ListItem>
+          <ListItemText primary="First Name" secondary={values.firstName} />
+        </ListItem>
+        <ListItem>
+          <ListItemText primary="Last Name" secondary={values.lastName} />
+        </ListItem>
+        <ListItem>
+          <ListItemText primary="Phone Number" secondary={values.phone} />
+        </ListItem>
+        <ListItem>
+          <ListItemText primary="Residence" secondary={values.residence} />
+        </ListItem>
       </List>
       <Typography variant="overline">Documents</Typography>
       <TableContainer>
