@@ -33,10 +33,29 @@ const Form = () => {
       residence: ''
     },
     
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       if (activeStep === steps.length - 1) {
         console.log('last step');
         console.log(values);
+        const response = await fetch('https://ap-south-1.aws.data.mongodb-api.com/app/data-jttnm/endpoint/data/v1/action/insertOne', {
+            method: 'POST',
+            headers: {
+              'apiKey': 'ptAn9C6B0k3R5orbYDMTZ3wBGINWTAReOko6FShvJoM9ed9e7z9JZsyaQ1dNNkpb',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              collection: 'EmpOnboardingInfo',
+              database: 'EmpOnboarding',
+              dataSource: 'EmployeeInfoTest',
+              document: values
+            })
+          });
+  
+          if (response.ok) {
+            console.log('Data successfully submitted to MongoDB:', response);
+          } else {
+            console.error('Failed to submit data to MongoDB:', response);
+          }
       } else {
         setActiveStep((prevStep) => prevStep + 1);
       }
