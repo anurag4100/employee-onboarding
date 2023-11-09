@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import {
   Box,
   Stepper,
@@ -34,9 +33,10 @@ const Form = () => {
       residence: ''
     },
     
-    onSubmit: () => {
+    onSubmit: (values) => {
       if (activeStep === steps.length - 1) {
         console.log('last step');
+        console.log(values);
       } else {
         setActiveStep((prevStep) => prevStep + 1);
       }
