@@ -170,7 +170,7 @@ const Form = () => {
             Back
           </Button>
           {activeStep === steps.length - 1 ? (
-            <Button onClick={formik.handleSubmit}>
+            <Button onClick={formik.handleSubmit} disabled= {!formik.values?.esign}>
               Submit
             </Button>
           ) : (

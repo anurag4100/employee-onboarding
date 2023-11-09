@@ -44,7 +44,7 @@ const ReviewInfo = ({ formik }) => {
     // Random duration between 5 and 10 seconds
     const duration = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
     setSignDuration(duration);
-
+    formik.setFieldValue("esign", true);
     // Simulate e-sign process
     setTimeout(() => {
       setSignSuccess(true);
@@ -113,7 +113,7 @@ const ReviewInfo = ({ formik }) => {
         </ListItem>
       </List>
       {consentChecked && (
-        <Button variant="contained" color="primary" onClick={handleESign}>
+        <Button variant="contained" color="primary" onClick={handleESign} disabled ={formik.values?.esign}>
           e-Sign
         </Button>
       )}
