@@ -33,20 +33,7 @@ const Form = () => {
       phone: '',
       residence: ''
     },
-    validationSchema: Yup.object().shape({
-      email: Yup.string()
-        .required('Email is required')
-        .email('Invalid email'),
-      password: Yup.string()
-        .min(8),
-      confirmPassword: Yup.string()
-        .min(8)
-        .oneOf([Yup.ref('password')], 'Passwords do not match'),
-      firstName: Yup.string()
-        .required('First Name is required'),
-      lastName: Yup.string()
-        .required('Last Name is required'),
-    }),
+    
     onSubmit: () => {
       if (activeStep === steps.length - 1) {
         console.log('last step');
@@ -115,7 +102,7 @@ const Form = () => {
             Back
           </Button>
           {activeStep === steps.length - 1 ? (
-            <Button>
+            <Button onClick={formik.handleSubmit}>
               Submit
             </Button>
           ) : (
