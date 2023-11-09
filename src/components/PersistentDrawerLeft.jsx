@@ -99,7 +99,7 @@ export default function PersistentDrawerLeft() {
             alt="Logo"
             style={{ marginRight: '10px', height: '50px', width: 'auto' }}
           />
-          <Typography variant="h6" noWrap component="div" style={{ color: 'black' }}>
+          <Typography variant="h6" noWrap component="div" color="#000000">
             Employee Onboarding
           </Typography>
         </Toolbar>
