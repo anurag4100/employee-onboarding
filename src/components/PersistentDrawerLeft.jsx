@@ -19,6 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Form from './Form';
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -92,8 +93,13 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
+          <img
+            src="https://github.com/anurag4100/employee-onboarding/assets/16067335/343d04fb-ee91-4f05-9ce7-9ea66147c47a"
+            alt="Logo"
+            style={{ marginRight: '10px', height: '40px', width: 'auto' }}
+          />
           <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+            Employee onboarding
           </Typography>
         </Toolbar>
       </AppBar>
