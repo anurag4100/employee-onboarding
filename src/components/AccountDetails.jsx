@@ -1,426 +1,367 @@
-import {
-  Grid,
-  TextField,
-  FormHelperText
-} from "@mui/material";
+import * as React from 'react';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 
-const AccountDetails = (props) => {
-  const { formik } = props;
+
+export default function AccountDetails() {
   return (
-    <Grid container spacing={2}> 
-      <Grid
-        item
-        xs={5}
-      >
-        <TextField
-          name="Salutation"
-          label="Salutation"
-          variant="outlined"
-          size='small'
-          type="Salutation"
-          fullWidth
-          error={Boolean(formik.touched.Salutation && formik.errors.Salutation)}
-          onChange={formik.handleChange}
-          value={formik.values.Salutation}
-        />
+    <React.Fragment>
+      <Typography variant="h5" gutterBottom>
+        Personal Details
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={6} sm={3}>
+          <TextField
+            required
+            id="salutation"
+            name="salutation"
+            label="Salutation"
+            // fullWidth
+            autoComplete="given-name"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={4}>
+          <TextField
+            required
+            id="firstName"
+            name="firstName"
+            label="First name"
+            fullWidth
+            autoComplete="given-name"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={4}>
+          <TextField
+            required
+            id="lastName"
+            name="lastName"
+            label="Last name"
+            fullWidth
+            autoComplete="family-name"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <TextField
+            required
+            id="gender"
+            name="gender"
+            label="Gender"
+            fullWidth
+            autoComplete="gender"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={4}>
+          <TextField
+            required
+            id="nationality"
+            name="nationality"
+            label="Nationality"
+            fullWidth
+            autoComplete="nationality"
+            variant="standard"
+          />
+        </Grid>
       </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="FirstName"
-          label="First Name"
-          variant="outlined"
-          type="FirstName"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.FirstName && formik.errors.FirstName)}
-          onChange={formik.handleChange}
-          value={formik.values.FirstName}
-        />
+      <h1></h1>
+
+      <Typography variant="h5" gutterBottom>
+        Present Address
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={6} sm={3}>
+          <TextField
+            required
+            id="PeriodOfStay"
+            name="PeriodOfStay"
+            label="Period Of Stay"
+            fullWidth
+            autoComplete="PeriodOfStay"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={4}>
+          <TextField
+            required
+            id="FromDate"
+            name="FromDate"
+            label="From Date"
+            fullWidth
+            autoComplete="FromDate"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={4}>
+          <TextField
+            required
+            id="OwnedRented"
+            name="OwnedRented"
+            label="OwnedRented"
+            fullWidth
+            autoComplete="OwnedRented"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <TextField
+            id="ApartmentName"
+            name="ApartmentName"
+            label="Apartment Name"
+            fullWidth
+            autoComplete="ApartmentName"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={5}>
+          <TextField
+            required
+            id="Street"
+            name="Street"
+            label="Street"
+            fullWidth
+            autoComplete="Street"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <TextField
+            required
+            id="Landmark"
+            name="Landmark"
+            label="Landmark"
+            fullWidth
+            autoComplete="Landmark"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={5}>
+          <TextField
+            required
+            id="City"
+            name="City"
+            label="City"
+            fullWidth
+            autoComplete="City"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <TextField
+            id="Pincode"
+            name="Pincode"
+            label="Pincode"
+            fullWidth
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            required
+            id="state"
+            name="state"
+            label="State"
+            fullWidth
+            autoComplete="state"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            required
+            id="country"
+            name="country"
+            label="Country"
+            fullWidth
+            autoComplete="shipping country"
+            variant="standard"
+          />
+        </Grid>
       </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="MiddleName"
-          label="Middle Name"
-          variant="outlined"
-          type="MiddleName"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.MiddleName && formik.errors.MiddleName)}
-          onChange={formik.handleChange}
-          value={formik.values.MiddleName}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="LastName"
-          label="Last Name"
-          variant="outlined"
-          size='small'
-          type="LastName"
-          fullWidth
-          error={Boolean(formik.touched.LastName && formik.errors.LastName)}
-          onChange={formik.handleChange}
-          value={formik.values.LastName}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Gender"
-          label="Gender"
-          variant="outlined"
-          size='small'
-          type="Gender"
-          fullWidth
-          error={Boolean(formik.touched.Gender && formik.errors.Gender)}
-          onChange={formik.handleChange}
-          value={formik.values.Gender}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Nationality"
-          label="Nationality"
-          variant="outlined"
-          type="Nationality"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.Nationality && formik.errors.Nationality)}
-          onChange={formik.handleChange}
-          value={formik.values.Nationality}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="PeriodOfStay"
-          label="Period Of Stay"
-          variant="outlined"
-          type="PeriodOfStay"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.PeriodOfStay && formik.errors.PeriodOfStay)}
-          onChange={formik.handleChange}
-          value={formik.values.PeriodOfStay}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="FromDate"
-          label="FromDate"
-          variant="outlined"
-          type="FromDate"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.FromDate && formik.errors.FromDate)}
-          onChange={formik.handleChange}
-          value={formik.values.FromDate}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="OwnedRented"
-          label="OwnedRented"
-          variant="outlined"
-          type="OwnedRented"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.OwnedRented && formik.errors.OwnedRented)}
-          onChange={formik.handleChange}
-          value={formik.values.OwnedRented}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="ApartmentName"
-          label="ApartmentName"
-          variant="outlined"
-          type="ApartmentName"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.ApartmentName && formik.errors.ApartmentName)}
-          onChange={formik.handleChange}
-          value={formik.values.ApartmentName}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Street"
-          label="Street"
-          variant="outlined"
-          type="Street"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.Street && formik.errors.Street)}
-          onChange={formik.handleChange}
-          value={formik.values.Street}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Pin"
-          label="Pin"
-          variant="outlined"
-          type="Pin"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.Pin && formik.errors.Pin)}
-          onChange={formik.handleChange}
-          value={formik.values.Pin}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Landmark"
-          label="Landmark"
-          variant="outlined"
-          type="Landmark"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.Landmark && formik.errors.Landmark)}
-          onChange={formik.handleChange}
-          value={formik.values.Landmark}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="City"
-          label="City"
-          variant="outlined"
-          type="City"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.City && formik.errors.City)}
-          onChange={formik.handleChange}
-          value={formik.values.City}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="State"
-          label="State"
-          variant="outlined"
-          type="State"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.State && formik.errors.State)}
-          onChange={formik.handleChange}
-          value={formik.values.State}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Country"
-          label="Country"
-          variant="outlined"
-          type="Country"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.Country && formik.errors.Country)}
-          onChange={formik.handleChange}
-          value={formik.values.Country}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Phone"
-          label="Phone"
-          variant="outlined"
-          type="Phone"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.Phone && formik.errors.Phone)}
-          onChange={formik.handleChange}
-          value={formik.values.Phone}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Email"
-          label="Email"
-          variant="outlined"
-          type="Email"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.Email && formik.errors.Email)}
-          onChange={formik.handleChange}
-          value={formik.values.Email}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="DOB"
-          label="Date of Birth"
-          variant="outlined"
-          type="DOB"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.DOB && formik.errors.DOB)}
-          onChange={formik.handleChange}
-          value={formik.values.DOB}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="PAN"
-          label="PAN"
-          variant="outlined"
-          type="PAN"
-          fullWidth
-          size="small"
-          error={Boolean(formik.touched.PAN && formik.errors.PAN)}
-          onChange={formik.handleChange}
-          value={formik.values.PAN}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Degree"
-          label="Degree"
-          variant="outlined"
-          size="small"
-          type="Degree"
-          fullWidth
-          error={Boolean(formik.touched.Degree && formik.errors.Degree)}
-          onChange={formik.handleChange}
-          value={formik.values.Degree}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Institution"
-          label="Institution"
-          variant="outlined"
-          size="small"
-          type="Institution"
-          fullWidth
-          error={Boolean(formik.touched.Institution && formik.errors.Institution)}
-          onChange={formik.handleChange}
-          value={formik.values.Institution}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Discipline"
-          label="Discipline"
-          variant="outlined"
-          size="small"
-          type="Discipline"
-          fullWidth
-          error={Boolean(formik.touched.Discipline && formik.errors.Discipline)}
-          onChange={formik.handleChange}
-          value={formik.values.Discipline}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Percentage"
-          label="Percentage"
-          variant="outlined"
-          size="small"
-          type="Percentage"
-          fullWidth
-          error={Boolean(formik.touched.Percentage && formik.errors.Percentage)}
-          onChange={formik.handleChange}
-          value={formik.values.Percentage}
-        />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-      >
-        <TextField
-          name="Year"
-          label="Year"
-          variant="outlined"
-          size="small"
-          type="Year"
-          fullWidth
-          error={Boolean(formik.touched.Year && formik.errors.Year)}
-          onChange={formik.handleChange}
-          value={formik.values.Year}
-        />
+
+      <h1></h1>
+
+      <Typography variant="h5" gutterBottom>
+        Additional Details
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={6} sm={5}>
+          <TextField
+            required
+            id="Phone"
+            name="Phone"
+            label="Phone"
+            fullWidth
+            autoComplete="Phone"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <TextField
+            required
+            id="Email"
+            name="Email"
+            label="Email"
+            fullWidth
+            autoComplete="Email"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={5}>
+          <TextField
+            required
+            id="DOB"
+            name="DOB"
+            label="Date of Birth"
+            fullWidth
+            autoComplete="DOB"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <TextField
+            id="PAN"
+            name="PAN"
+            label="PAN"
+            fullWidth
+            autoComplete="PAN"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={5}>
+          <TextField
+            required
+            id="PassportNo"
+            name="PassportNo"
+            label="Passport No"
+            fullWidth
+            autoComplete="PassportNo"
+            variant="standard"
+          />
+        </Grid>
       </Grid>
       
-      {formik.errors.submit && (
-        <Grid
-          item
-          xs={12}
-        >
-          <FormHelperText error>
-            {formik.errors.submit}
-          </FormHelperText>
-        </Grid>
-      )}
-    </Grid>
-  )
-}
+      <h1></h1>
 
-export default AccountDetails
+      <Typography variant="h5" gutterBottom>
+        Educational Qualifications
+      </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={11}>
+          <TextField
+            required
+            id="Degree1"
+            name="Degree1"
+            label="Degree1"
+            fullWidth
+            autoComplete="Degree1"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <TextField
+            required
+            id="Institution"
+            name="Institution"
+            label="Institution"
+            fullWidth
+            autoComplete="Institution"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={5}>
+          <TextField
+            required
+            id="Discipline"
+            name="Discipline"
+            label="Discipline"
+            fullWidth
+            autoComplete="Discipline"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <TextField
+            required
+            id="Percentage"
+            name="Percentage"
+            label="Percentage"
+            fullWidth
+            autoComplete="Percentage"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={5}>
+          <TextField
+            required
+            id="Year"
+            name="Year"
+            label="Year"
+            fullWidth
+            autoComplete="Year"
+            variant="standard"
+          />
+        </Grid>
+
+        <Grid item xs={11}>
+          <TextField
+            
+            id="Degree2"
+            name="Degree2"
+            label="Degree2"
+            fullWidth
+            autoComplete="Degree2"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <TextField
+            
+            id="Institution"
+            name="Institution"
+            label="Institution"
+            fullWidth
+            autoComplete="Institution"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={5}>
+          <TextField
+            
+            id="Discipline"
+            name="Discipline"
+            label="Discipline"
+            fullWidth
+            autoComplete="Discipline"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={6}>
+          <TextField
+            id="Percentage"
+            name="Percentage"
+            label="Percentage"
+            fullWidth
+            autoComplete="Percentage"
+            variant="standard"
+          />
+        </Grid>
+        <Grid item xs={6} sm={5}>
+          <TextField
+            
+            id="Year"
+            name="Year"
+            label="Year"
+            fullWidth
+            autoComplete="Year"
+            variant="standard"
+          />
+        </Grid>
+      </Grid>
+    </React.Fragment>
+    
+  );
+}
