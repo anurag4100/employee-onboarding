@@ -44,6 +44,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
+  backgroundColor: '#db0011',
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -96,10 +97,10 @@ export default function PersistentDrawerLeft() {
           <img
             src="https://github.com/anurag4100/employee-onboarding/assets/16067335/343d04fb-ee91-4f05-9ce7-9ea66147c47a"
             alt="Logo"
-            style={{ marginRight: '10px', height: '40px', width: 'auto' }}
+            style={{ marginRight: '10px', height: '50px', width: 'auto' }}
           />
-          <Typography variant="h6" noWrap component="div">
-            Employee onboarding
+          <Typography variant="h6" noWrap component="div" style={{ color: 'black' }}>
+            Employee Onboarding
           </Typography>
         </Toolbar>
       </AppBar>
@@ -123,7 +124,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Application Form', 'Address Form', 'CIBIL Form', 'Consent Form'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -136,7 +137,7 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Contact Us', 'About', 'T&C'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
