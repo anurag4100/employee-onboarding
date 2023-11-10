@@ -2,27 +2,37 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-
+import MenuItem from '@mui/material/MenuItem';
 
 export default function AccountDetails(props) {
   const { formik } = props;
+  const salutationOptions = ['Mr', 'Mrs', 'Miss', 'Ms'];
+  const genderOptions = ['Male', 'Female', 'Other'];
+  const nationalityOptions = ['Indian', 'American', 'Other'];
   return (
     <React.Fragment>
       <Typography variant="h5" gutterBottom>
         Personal Details
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={6} sm={3}>
+      <Grid item xs={6} sm={3}>
           <TextField
             required
             id="salutation"
             name="salutation"
             label="Salutation"
-            // fullWidth
-            autoComplete="given-name"
             variant="standard"
+            select
+            fullWidth
+            value={formik.values.salutation}
             onChange={formik.handleChange}
-          />
+          >
+            {salutationOptions.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
         <Grid item xs={6} sm={4}>
           <TextField
@@ -55,10 +65,17 @@ export default function AccountDetails(props) {
             name="gender"
             label="Gender"
             fullWidth
-            autoComplete="gender"
             variant="standard"
+            select
+            value={formik.values.gender}
             onChange={formik.handleChange}
-          />
+          >
+            {genderOptions.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
         <Grid item xs={6} sm={4}>
           <TextField
@@ -67,10 +84,17 @@ export default function AccountDetails(props) {
             name="nationality"
             label="Nationality"
             fullWidth
-            autoComplete="nationality"
             variant="standard"
+            select
+            value={formik.values.nationality}
             onChange={formik.handleChange}
-          />
+          >
+            {nationalityOptions.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
       </Grid>
       <h1></h1>
