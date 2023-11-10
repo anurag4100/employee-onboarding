@@ -67,6 +67,11 @@ const ReviewInfo = ({ formik }) => {
     { label: 'Degree2', value: values.Degree2 },
   ];
 
+  const digiLockerDocuments = [
+    { name: '12th Passing Certificate', fieldName: '12thPassingCertificate' },
+    { name: 'Degree Certificate', fieldName: 'degreeCertificate' },
+  ];
+
   const handleConsentChange = () => {
     setConsentChecked(!consentChecked);
   };
@@ -78,7 +83,7 @@ const ReviewInfo = ({ formik }) => {
     // Random duration between 5 and 10 seconds
     const duration = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
     setSignDuration(duration);
-    formik.setFieldValue("esign", true);
+    formik.setFieldValue('esign', true);
     // Simulate e-sign process
     setTimeout(() => {
       setSignSuccess(true);
@@ -158,6 +163,22 @@ const ReviewInfo = ({ formik }) => {
         <Table>
           <TableBody>
             {documentFields.map((document) => (
+              <TableRow key={document.fieldName}>
+                <TableCell>{document.name}</TableCell>
+                <TableCell align="right">
+                  {values[document.fieldName] && <CloudDownloadIcon />}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
+      <Typography variant="overline">DigiLocker Documents</Typography>
+      <TableContainer>
+        <Table>
+          <TableBody>
+            {digiLockerDocuments.map((document) => (
               <TableRow key={document.fieldName}>
                 <TableCell>{document.name}</TableCell>
                 <TableCell align="right">
