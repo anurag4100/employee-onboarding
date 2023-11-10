@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
   Typography,
-  List,
-  ListItem,
-  ListItemText,
   Table,
   TableContainer,
-  TableHead,
   TableBody,
   TableRow,
   TableCell,
@@ -102,46 +98,64 @@ const ReviewInfo = ({ formik }) => {
   return (
     <>
       <Typography variant="overline">Personal Information</Typography>
-      <List>
-        {personalDetailsFields.map((field, index) => (
-          <ListItem key={index}>
-            <ListItemText primary={field.label} secondary={field.value} />
-          </ListItem>
-        ))}
-      </List>
+      <TableContainer>
+        <Table>
+          <TableBody>
+            {personalDetailsFields.map((field, index) => (
+              <TableRow key={index}>
+                <TableCell>{field.label}</TableCell>
+                <TableCell>{field.value}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
       <Typography variant="overline">Present Address</Typography>
-      <List>
-        {presentAddressFields.map((field, index) => (
-          <ListItem key={index}>
-            <ListItemText primary={field.label} secondary={field.value} />
-          </ListItem>
-        ))}
-      </List>
+      <TableContainer>
+        <Table>
+          <TableBody>
+            {presentAddressFields.map((field, index) => (
+              <TableRow key={index}>
+                <TableCell>{field.label}</TableCell>
+                <TableCell>{field.value}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
       <Typography variant="overline">Additional Details</Typography>
-      <List>
-        {additionalDetailsFields.map((field, index) => (
-          <ListItem key={index}>
-            <ListItemText primary={field.label} secondary={field.value} />
-          </ListItem>
-        ))}
-      </List>
+      <TableContainer>
+        <Table>
+          <TableBody>
+            {additionalDetailsFields.map((field, index) => (
+              <TableRow key={index}>
+                <TableCell>{field.label}</TableCell>
+                <TableCell>{field.value}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
       <Typography variant="overline">Educational Qualifications</Typography>
-      <List>
-        {educationFields.map((field, index) => (
-          <ListItem key={index}>
-            <ListItemText primary={field.label} secondary={field.value} />
-          </ListItem>
-        ))}
-      </List>
+      <TableContainer>
+        <Table>
+          <TableBody>
+            {educationFields.map((field, index) => (
+              <TableRow key={index}>
+                <TableCell>{field.label}</TableCell>
+                <TableCell>{field.value}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
       <Typography variant="overline">Documents</Typography>
       <TableContainer>
         <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Document Name</TableCell>
-              <TableCell align="right">Download</TableCell>
-            </TableRow>
-          </TableHead>
           <TableBody>
             {documentFields.map((document) => (
               <TableRow key={document.fieldName}>
@@ -154,21 +168,23 @@ const ReviewInfo = ({ formik }) => {
           </TableBody>
         </Table>
       </TableContainer>
+
       <Typography variant="overline">Consent</Typography>
-      <List>
-        <ListItem>
-          <Checkbox
-            checked={consentChecked}
-            onChange={handleConsentChange}
-            color="primary"
-          />
-          <ListItemText
-            primary="I confirm that the information provided is true and accurate."
-          />
-        </ListItem>
-      </List>
+      <Checkbox
+        checked={consentChecked}
+        onChange={handleConsentChange}
+        color="primary"
+      />
+      <Typography>
+        I confirm that the information provided is true and accurate.
+      </Typography>
       {consentChecked && (
-        <Button variant="contained" color="primary" onClick={handleESign} disabled={formik.values?.esign}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleESign}
+          disabled={formik.values?.esign}
+        >
           e-Sign
         </Button>
       )}
