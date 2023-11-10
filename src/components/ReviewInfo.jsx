@@ -33,6 +33,44 @@ const ReviewInfo = ({ formik }) => {
     { name: 'Other Document', fieldName: 'otherDocument' },
   ];
 
+  const personalDetailsFields = [
+    { label: 'Salutation', value: values.salutation },
+    { label: 'First Name', value: values.firstName },
+    { label: 'Last Name', value: values.lastName },
+    { label: 'Gender', value: values.gender },
+    { label: 'Nationality', value: values.nationality },
+  ];
+
+  const presentAddressFields = [
+    { label: 'Period Of Stay', value: values.PeriodOfStay },
+    { label: 'From Date', value: values.FromDate },
+    { label: 'Owned/Rented', value: values.OwnedRented },
+    { label: 'Apartment Name', value: values.ApartmentName },
+    { label: 'Street', value: values.Street },
+    { label: 'Landmark', value: values.Landmark },
+    { label: 'City', value: values.City },
+    { label: 'Pincode', value: values.Pincode },
+    { label: 'State', value: values.state },
+    { label: 'Country', value: values.country },
+  ];
+
+  const additionalDetailsFields = [
+    { label: 'Phone', value: values.Phone },
+    { label: 'Email', value: values.Email },
+    { label: 'Date of Birth', value: values.DOB },
+    { label: 'PAN', value: values.PAN },
+    { label: 'Passport No', value: values.PassportNo },
+  ];
+
+  const educationFields = [
+    { label: 'Degree1', value: values.Degree1 },
+    { label: 'Institution', value: values.Institution },
+    { label: 'Discipline', value: values.Discipline },
+    { label: 'Percentage', value: values.Percentage },
+    { label: 'Year', value: values.Year },
+    { label: 'Degree2', value: values.Degree2 },
+  ];
+
   const handleConsentChange = () => {
     setConsentChecked(!consentChecked);
   };
@@ -65,18 +103,35 @@ const ReviewInfo = ({ formik }) => {
     <>
       <Typography variant="overline">Personal Information</Typography>
       <List>
-      <ListItem>
-          <ListItemText primary="First Name" secondary={values.firstName} />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="Last Name" secondary={values.lastName} />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="Phone Number" secondary={values.phone} />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="Residence" secondary={values.residence} />
-        </ListItem>
+        {personalDetailsFields.map((field, index) => (
+          <ListItem key={index}>
+            <ListItemText primary={field.label} secondary={field.value} />
+          </ListItem>
+        ))}
+      </List>
+      <Typography variant="overline">Present Address</Typography>
+      <List>
+        {presentAddressFields.map((field, index) => (
+          <ListItem key={index}>
+            <ListItemText primary={field.label} secondary={field.value} />
+          </ListItem>
+        ))}
+      </List>
+      <Typography variant="overline">Additional Details</Typography>
+      <List>
+        {additionalDetailsFields.map((field, index) => (
+          <ListItem key={index}>
+            <ListItemText primary={field.label} secondary={field.value} />
+          </ListItem>
+        ))}
+      </List>
+      <Typography variant="overline">Educational Qualifications</Typography>
+      <List>
+        {educationFields.map((field, index) => (
+          <ListItem key={index}>
+            <ListItemText primary={field.label} secondary={field.value} />
+          </ListItem>
+        ))}
       </List>
       <Typography variant="overline">Documents</Typography>
       <TableContainer>
@@ -113,7 +168,7 @@ const ReviewInfo = ({ formik }) => {
         </ListItem>
       </List>
       {consentChecked && (
-        <Button variant="contained" color="primary" onClick={handleESign} disabled ={formik.values?.esign}>
+        <Button variant="contained" color="primary" onClick={handleESign} disabled={formik.values?.esign}>
           e-Sign
         </Button>
       )}
@@ -175,7 +230,6 @@ const ReviewInfo = ({ formik }) => {
               <CheckCircleIcon color="success" style={{ fontSize: 80 }} />
             </div>
           </Zoom>
-
         </Box>
       </Modal>
     </>

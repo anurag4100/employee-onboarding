@@ -4,7 +4,8 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
 
-export default function AccountDetails() {
+export default function AccountDetails(props) {
+  const { formik } = props;
   return (
     <React.Fragment>
       <Typography variant="h5" gutterBottom>
@@ -20,6 +21,7 @@ export default function AccountDetails() {
             // fullWidth
             autoComplete="given-name"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={4}>
@@ -31,6 +33,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="given-name"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={4}>
@@ -42,6 +45,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="family-name"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={3}>
@@ -53,6 +57,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="gender"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={4}>
@@ -64,6 +69,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="nationality"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
       </Grid>
@@ -82,6 +88,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="PeriodOfStay"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={4}>
@@ -93,6 +100,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="FromDate"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={4}>
@@ -104,6 +112,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="OwnedRented"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={6}>
@@ -114,6 +123,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="ApartmentName"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={5}>
@@ -125,6 +135,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Street"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={6}>
@@ -136,6 +147,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Landmark"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={5}>
@@ -147,6 +159,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="City"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={3}>
@@ -156,6 +169,7 @@ export default function AccountDetails() {
             label="Pincode"
             fullWidth
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -167,6 +181,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="state"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -178,6 +193,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="shipping country"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
       </Grid>
@@ -197,6 +213,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Phone"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={6}>
@@ -208,6 +225,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Email"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={5}>
@@ -219,6 +237,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="DOB"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={6}>
@@ -229,6 +248,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="PAN"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={5}>
@@ -240,6 +260,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="PassportNo"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
       </Grid>
@@ -259,6 +280,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Degree1"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={6}>
@@ -270,6 +292,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Institution"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={5}>
@@ -281,6 +304,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Discipline"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={6}>
@@ -292,6 +316,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Percentage"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={5}>
@@ -303,6 +328,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Year"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
 
@@ -315,6 +341,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Degree2"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={6}>
@@ -326,6 +353,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Institution"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={5}>
@@ -337,6 +365,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Discipline"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={6}>
@@ -347,6 +376,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Percentage"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
         <Grid item xs={6} sm={5}>
@@ -358,6 +388,7 @@ export default function AccountDetails() {
             fullWidth
             autoComplete="Year"
             variant="standard"
+            onChange={formik.handleChange}
           />
         </Grid>
       </Grid>
